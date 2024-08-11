@@ -3,6 +3,8 @@ plugins {
 }
 
 android {
+    namespace = "com.mehtank.androminionit "
+
     compileSdk 34
 
     defaultConfig {
@@ -12,10 +14,6 @@ android {
         versionCode 1000
         versionName "10.0"
         setProperty("archivesBaseName", "Androminion_${versionName}")
-    }
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
     }
 
     signingConfigs {
@@ -43,12 +41,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
 }
 
 dependencies {
     implementation project(path: ':vdom')
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'androidx.preference:preference:1.2.1'
-    implementation 'androidx.viewpager2:viewpager2:1.1.0'
-    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.google.android.material:material:1.5.0'
 }
