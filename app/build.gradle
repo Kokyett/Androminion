@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mehtank.androminionit "
+    namespace = "com.mehtank.androminion"
 
     compileSdk 34
 
