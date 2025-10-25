@@ -1263,5 +1263,24 @@
     
     <string name="Summon_name">Convocation</string>
     <string name="Summon_desc">Recevez une carte Action coûtant au maximum $4 et placez-la de côté. Si elle y est toujours au début de votre prochain tour, jouez-la.</string>
-    
+
+    <string name="Astrolabe_name">Astrolabe</string>
+    <string name="Astrolabe_desc"></string>
+    <string name="Blockade_name">Blocus</string>
+    <string name="Blockade_desc"></string>
+    <string name="Corsair_name">Corsaire</string>
+    <string name="Corsair_desc"></string>
+    <string name="Monkey_name">Singe</string>
+    <string name="Monkey_desc"></string>
+    <string name="Pirate_name">Pirate</string>
+    <string name="Pirate_desc"></string>
+    <string name="Sailor_name">Navigatrice</string>
+    <string name="Sailor_desc"></string>
+    <string name="SeaChart_name">Carte Marine</string>
+    <string name="SeaChart_desc">Dévoilez la carte du haut de votre pioche. Si vous en avez un exemplaire en jeu, prenez-là en main.</string>
+    <string name="SeaWitch_name">Sorcière Marine</string>
+    <string name="SeaWitch_desc"></string>
+    <string name="TidePools_name">Tide Pools</string>*
+    <string name="TidePools_desc">Marée</string>
+
 </resources>

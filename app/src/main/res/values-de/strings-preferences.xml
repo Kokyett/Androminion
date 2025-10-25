@@ -65,6 +65,12 @@
 		<item>Zweite Edition (2016)</item>
 		<item>Beide Editionen verwenden</item>
 	</string-array>
+	<string name="pref_seaside_edtion_title">Seaside</string>
+	<string-array name="pref_seaside_editions">
+		<item>Erste Edition (2009)</item>
+		<item>Zweite Edition (2022)</item>
+		<item>Beide Editionen verwenden</item>
+	</string-array>
 	<string name="errata_category_pref_title">Regeländerungen</string>
 	<string name="erratamasquerade_pref_title">Maskerade</string>
 	<string name="erratamasquerade_pref_summary">Spieler ohne Karten setzen aus</string>

@@ -65,6 +65,12 @@
 		<item>Second edition (2016)</item>
 		<item>Use cards from both</item>
 	</string-array>
+	<string name="pref_seaside_edtion_title">Seaside edition</string>
+	<string-array name="pref_seaside_editions">
+		<item>First edition (2009)</item>
+		<item>Second edition (2022)</item>
+		<item>Use cards from both</item>
+	</string-array>
 	<string name="errata_category_pref_title">Errata</string>
 	<string name="erratamasquerade_pref_title">Masquerade</string>
 	<string name="erratamasquerade_pref_summary">Players without cards don\'t pass (from Intrigue 2E)</string>

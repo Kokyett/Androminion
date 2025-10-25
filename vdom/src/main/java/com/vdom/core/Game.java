@@ -988,6 +988,7 @@ public class Game {
     		winEvent.setAmount(highestBid);
             context.game.broadcastEvent(winEvent);
     	}
+        player.playedCards.clear();
     }
     
     protected void playerAction(Player player, MoveContext context) {

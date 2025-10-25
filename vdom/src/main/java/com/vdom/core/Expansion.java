@@ -13,6 +13,8 @@ public enum Expansion {
 	Intrigue2E,
 	IntrigueAll(true),
 	Seaside,
+	Seaside2E,
+	SeasideAll(true),
 	Alchemy,
 	Prosperity,
 	Cornucopia,

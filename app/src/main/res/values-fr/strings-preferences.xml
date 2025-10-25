@@ -65,6 +65,12 @@
 		<item>Seconde édition (2016)</item>
 		<item>Utiliser les cartes des deux</item>
 	</string-array>
+	<string name="pref_seaside_edtion_title">Édition de Rivages</string>
+	<string-array name="pref_seaside_editions">
+		<item>Première édition (2009)</item>
+		<item>Seconde édition (2022)</item>
+		<item>Utiliser les cartes des deux</item>
+	</string-array>
 	<string name="errata_category_pref_title">Errata</string>
 	<string name="erratamasquerade_pref_title">Mascarade</string>
 	<string name="erratamasquerade_pref_summary">Les joueurs sans carte ne passent pas (L\'Intrigue 2E)</string>

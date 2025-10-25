@@ -61,6 +61,9 @@ public class CardImplSeaside extends CardImpl {
 		case Salvager:
             salvager(context, currentPlayer, playContext);
             break;
+        case SeaChart:
+            seaChart(game, context, currentPlayer);
+            break;
 		case SeaHag:
             seaHag(game, context, currentPlayer);
             break;
@@ -508,7 +511,19 @@ public class CardImplSeaside extends CardImpl {
         currentPlayer.trashFromHand(card, this, context);
         context.addCoins(card.getCost(context), this, playContext);
     }
-    
+
+    private void seaChart(Game game, MoveContext context, Player currentPlayer) {
+        Card card = game.draw(context, this, 0);
+        if (card == null)
+            return;
+        currentPlayer.reveal(card, this, context);
+        if (currentPlayer.playedCards.contains(card)) {
+            currentPlayer.hand.add(card, true);
+        } else {
+            currentPlayer.putOnTopOfDeck(card, context, true);
+        }
+    }
+
     private void seaHag(Game game, MoveContext context, Player currentPlayer) {
         for (Player player : game.getPlayersInTurnOrder()) {
             if (player != currentPlayer && !Util.isDefendedFromAttack(game, player, this)) {
@@ -525,7 +540,7 @@ public class CardImplSeaside extends CardImpl {
             }
         }
     }
-    
+
     private void smugglers(MoveContext context, Player currentPlayer) {
         Card card = currentPlayer.controlPlayer.smugglers_cardToObtain(context);
         if (card != null) {

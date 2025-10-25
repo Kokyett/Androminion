@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <string-array name="pref_base_set_edition_keys" tools:ignore="MissingTranslation">
+<resources>
+    <string-array name="pref_base_set_edition_keys" translatable="false">
         <item>Base</item>
         <item>Base2E</item>
         <item>BaseAll</item>
     </string-array>
-    <string-array name="pref_intrigue_edition_keys" tools:ignore="MissingTranslation">
+    <string-array name="pref_intrigue_edition_keys" translatable="false">
         <item>Intrigue</item>
         <item>Intrigue2E</item>
         <item>IntrigueAll</item>
     </string-array>
-    <string-array name="pref_errata_possessor_tokens_keys" tools:ignore="MissingTranslation">
+    <string-array name="pref_seaside_edition_keys" translatable="false">
+        <item>Seaside</item>
+        <item>Seaside2E</item>
+        <item>SeasideAll</item>
+    </string-array>
+    <string-array name="pref_errata_possessor_tokens_keys" translatable="false">
         <item>None</item>
         <item>All</item>
         <item>Debt</item>
     </string-array>
-    <string-array name="showimages_keys" tools:ignore="MissingTranslation">
+    <string-array name="showimages_keys" translatable="false">
         <item>Desc</item>
         <item>Image</item>
         <item>Both</item>
     </string-array>
-    <string-array name="bm_split_piles_pref_keys" tools:ignore="MissingTranslation">
+    <string-array name="bm_split_piles_pref_keys" translatable="false">
         <item>None</item>
         <item>One</item>
         <item>Any</item>

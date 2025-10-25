@@ -23,16 +23,16 @@
 	
 	<string name="vp_single">Vaut %1$s PV</string>
 	<string name="vp_multiple">Vaut %1$s PVs</string>
-	<string name="coin_next_turn_single">+(%1$s) Pièce au prochain tour</string>
-	<string name="coin_next_turn_multiple">+(%1$s) Pièces au prochain tour</string>
+	<string name="coin_next_turn_single">+$%1$s au prochain tour</string>
+	<string name="coin_next_turn_multiple">+$%1$s au prochain tour</string>
 	<string name="buy_next_turn_single">+%1$s Achat au prochain tour</string>
 	<string name="buys_next_turn_multiple">+%1$s Achats au prochain tour</string>
 	<string name="card_next_turn_single">+%1$s Carte au prochain tour</string>
 	<string name="cards_next_turn_multiple">+%1$s Cartes au prochain tour</string>
 	<string name="action_next_turn_single">+%1$s Action au prochain tour</string>
 	<string name="actions_next_turn_multiple">+%1$s Actions au prochain tour</string>
-	<string name="card_coin_single">+(%1$s) Pièce</string>
-	<string name="card_coin_multiple">+(%1$s) Pièces</string>
+	<string name="card_coin_single">+$%1$s</string>
+	<string name="card_coin_multiple">+$%1$s</string>
 	<string name="card_buy_single">+%1$s Achat</string>
 	<string name="card_buys_multiple">+%1$s Achats</string>
 	<string name="card_action_single">+%1$s Action</string>

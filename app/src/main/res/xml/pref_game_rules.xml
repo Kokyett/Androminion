@@ -53,6 +53,14 @@
             android:title="@string/pref_intrigue_edtion_title"
             android:summary="%s"
             app:iconSpaceReserved="false"/>
+        <ListPreference
+            android:defaultValue="@string/pref_seaside_cards_default"
+            android:entries="@array/pref_seaside_editions"
+            android:entryValues="@array/pref_seaside_edition_keys"
+            android:key="seaside_edition"
+            android:title="@string/pref_seaside_edtion_title"
+            android:summary="%s"
+            app:iconSpaceReserved="false"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/errata_category_pref_title"
