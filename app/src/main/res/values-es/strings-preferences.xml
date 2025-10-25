@@ -65,6 +65,12 @@
 		<item>Segunda edición (2016)</item>
 		<item>Utilizar cartas de ambas</item>
 	</string-array>
+	<string name="pref_seaside_edtion_title">Edición de Terramar</string>
+	<string-array name="pref_seaside_editions">
+		<item>Primera edición (2009)</item>
+		<item>Segunda edición (2022)</item>
+		<item>Utilizar cartas de ambas</item>
+	</string-array>
 	<string name="errata_category_pref_title">Fe de erratas</string>
 	<string name="erratamasquerade_pref_title">Mascarada</string>
 	<string name="erratamasquerade_pref_summary">Jugadores sin cartas no pasan (de Intriga 2E)</string>

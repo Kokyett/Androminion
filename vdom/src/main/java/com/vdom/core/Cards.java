@@ -14,6 +14,8 @@ public class Cards {
     public static ArrayList<Card> actionCardsIntrigue2E = new ArrayList<Card>();
     public static ArrayList<Card> actionCardsIntrigueAll = new ArrayList<Card>();
     public static ArrayList<Card> actionCardsSeaside = new ArrayList<Card>();
+    public static ArrayList<Card> actionCardsSeaside2E = new ArrayList<Card>();
+    public static ArrayList<Card> actionCardsSeasideAll = new ArrayList<Card>();
     public static ArrayList<Card> actionCardsAlchemy = new ArrayList<Card>();
     public static ArrayList<Card> actionCardsProsperity = new ArrayList<Card>();
     public static ArrayList<Card> actionCardsCornucopia = new ArrayList<Card>();
@@ -81,6 +83,9 @@ public class Cards {
         Outpost, GhostShip, Salvager, PirateShip, NativeVillage, Island, Cutpurse, Bazaar,
         Smugglers, Explorer, PearlDiver, TreasureMap, Navigator, Treasury, Lookout, Ambassador,
         Warehouse, Embargo,
+        // Seaside Second Edition
+        Astrolabe, Blockade, Corsair, Monkey, Pirate, Sailor, SeaChart, SeaWitch, TidePools,
+
         // Alchemy Expansion
         Alchemist, Apothecary, Apprentice, Familiar, Golem, Herbalist, PhilosophersStone,
         Possession, ScryingPool, Transmute, University, Vineyard,
@@ -264,7 +269,6 @@ public class Cards {
 
     // Seaside expansion
     public static final Card haven;
-    public static final Card seaHag;
     public static final Card tactician;
     public static final Card caravan;
     public static final Card lighthouse;
@@ -272,23 +276,38 @@ public class Cards {
     public static final Card wharf;
     public static final Card merchantShip;
     public static final Card outpost;
-    public static final Card ghostShip;
     public static final Card salvager;
-    public static final Card pirateShip;
     public static final Card nativeVillage;
     public static final Card island;
     public static final Card cutpurse;
     public static final Card bazaar;
     public static final Card smugglers;
-    public static final Card explorer;
-    public static final Card pearlDiver;
     public static final Card treasureMap;
-    public static final Card navigator;
     public static final Card treasury;
     public static final Card lookout;
-    public static final Card ambassador;
     public static final Card warehouse;
+
+    // Intrigue first Edition (removed in second Edition)
+    public static final Card ambassador;
     public static final Card embargo;
+    public static final Card explorer;
+    public static final Card ghostShip;
+    public static final Card navigator;
+    public static final Card pearlDiver;
+    public static final Card pirateShip;
+    public static final Card seaHag;
+
+    // Seaside second Edition
+    public static final Card astrolabe;
+    //public static final Card blockade;
+    //public static final Card corsair;
+    //public static final Card monkey;
+    //public static final Card pirate;
+    //public static final Card sailor;
+    public static final Card seaChart;
+    public static final Card seaWitch;
+    //public static final Card tidePools;
+
 
     // Alchemy expansion
     public static final Card alchemist;
@@ -925,32 +944,48 @@ public class Cards {
         actionCardsIntrigueAll.addAll(actionCardsIntrigue);
         
         // Seaside
-        actionCardsSeaside.add(ambassador = new CardImpl.Builder(Cards.Kind.Ambassador, 3, Type.Action, Type.Attack).trashForced().description("Reveal a card from your hand. Return up to 2 copies of it from your hand to the Supply. Then each other player gains a copy of it.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(bazaar = new CardImpl.Builder(Cards.Kind.Bazaar, 5, Type.Action).addCards(1).addActions(2).addGold(1).expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(caravan = new CardImpl.Builder(Cards.Kind.Caravan, 4, Type.Action, Type.Duration).addCardsNextTurn(1).addCards(1).addActions(1).expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(cutpurse = new CardImpl.Builder(Cards.Kind.Cutpurse, 4, Type.Action, Type.Attack).addGold(2).description("Each other player discards a Copper card (or reveals a hand with no Copper).").expansion(Expansion.Seaside).build());
-        actionCardsSeaside.add(embargo = new CardImpl.Builder(Cards.Kind.Embargo, 2, Type.Action).addGold(2).description("Trash this to add an Embargo token to a Supply pile. (For the rest of the game, when a player buys a card from that pile, they gain a Curse.)").expansion(Expansion.Seaside).build());
-        actionCardsSeaside.add(explorer = new CardImpl.Builder(Cards.Kind.Explorer, 5, Type.Action).description("You may reveal a Province card from your hand. If you do, gain a Gold card, putting it into your hand. Otherwise, gain a Silver card, putting it into your hand.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(fishingVillage = new CardImpl.Builder(Cards.Kind.FishingVillage, 3, Type.Action, Type.Duration).addGoldNextTurn(1).addActionsNextTurn(1).addActions(2).addGold(1).expansion(Expansion.Seaside).build());
-        actionCardsSeaside.add(ghostShip = new CardImpl.Builder(Cards.Kind.GhostShip, 5, Type.Action, Type.Attack).addCards(2).description("Each other player with 4 or more cards in hand puts cards from his hand on top of his deck until he has 3 cards in his hand.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(haven = new CardImpl.Builder(Cards.Kind.Haven, 2, Type.Action, Type.Duration).addCards(1).addActions(1).description("Set aside a card from your hand face down. At the start of your next turn, put it into your hand.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(island = new CardImpl.Builder(Cards.Kind.Island, 4, Type.Action, Type.Victory).vp(2).description("Set aside this and another card from your hand. Return them to your deck at the end of the game.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(lighthouse = new CardImpl.Builder(Cards.Kind.Lighthouse, 2, Type.Action, Type.Duration).addGoldNextTurn(1).addActions(1).addGold(1).description("While you have this in play, when another player plays an Attack card, it doesn't affect you.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(lookout = new CardImpl.Builder(Cards.Kind.Lookout, 3, Type.Action).addActions(1).description("Look at the top 3 cards of your deck. Trash one of them. Discard one of them. Put the other one on top of your deck.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(merchantShip = new CardImpl.Builder(Cards.Kind.MerchantShip, 5, Type.Action, Type.Duration).addGoldNextTurn(2).addGold(2).expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(nativeVillage = new CardImpl.Builder(Cards.Kind.NativeVillage, 2, Type.Action).addActions(2).description("Choose one: Set aside the top card of your deck face down on your Native Village mat; or put all the cards from your mat into your hand.").expansion(Expansion.Seaside).build());
-        actionCardsSeaside.add(navigator = new CardImpl.Builder(Cards.Kind.Navigator, 4, Type.Action).addGold(2).description("Look at the top 5 cards of your deck. Either discard all of them, or put them back on top of your deck in any order.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(outpost = new CardImpl.Builder(Cards.Kind.Outpost, 5, Type.Action, Type.Duration).takeAnotherTurn(3).description("You only draw 3 cards (instead of 5) in this turn's Clean-up phase. Take an extra turn after this one. This can't cause you to take more than two consecutive turns.").expansion(Expansion.Seaside).build());
-        actionCardsSeaside.add(pearlDiver = new CardImpl.Builder(Cards.Kind.PearlDiver, 2, Type.Action).addCards(1).addActions(1).description("Look at the bottom card of your deck. You may put it on top.").expansion(Expansion.Seaside).build());
-        actionCardsSeaside.add(pirateShip = new CardImpl.Builder(Cards.Kind.PirateShip, 4, Type.Action, Type.Attack).hasPlusCoin().description("Choose one: Each other player reveals the top 2 cards of his deck, trashes a revealed Treasure that you choose, discards the rest, and if anyone trashed a Treasure you take a Coin token; or, +1 Coin per Coin token you've taken with Pirate Ships this game.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(salvager = new CardImpl.Builder(Cards.Kind.Salvager, 4, Type.Action).hasPlusCoin().trashForced().addBuys(1).description("Trash a card from your hand. + Coins equal to its cost.").expansion(Expansion.Seaside).build());
-        actionCardsSeaside.add(seaHag = new CardImpl.Builder(Cards.Kind.SeaHag, 4, Type.Action, Type.Attack).description("Each other player discards the top card of his deck, then gains a Curse card, putting it on top of his deck.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(smugglers = new CardImpl.Builder(Cards.Kind.Smugglers, 3, Type.Action).description("Gain a copy of a card costing up to 6 Coins that the player to your right gained on his last turn.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(tactician = new CardImpl.Builder(Cards.Kind.Tactician, 5, Type.Action, Type.Duration).description("Discard your hand. If you discarded any cards this way, then at the start of your next turn, +5 Cards, +1 Buy, and +1 Action.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(treasureMap = new CardImpl.Builder(Cards.Kind.TreasureMap, 4, Type.Action).description("Trash this and another copy of Treasure Map from your hand. If you do trash two Treasure Maps, gain 4 Gold cards putting them on top of your deck.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(treasury = new CardImpl.Builder(Cards.Kind.Treasury, 5, Type.Action).addCards(1).addActions(1).addGold(1).description("When you discard this from play, if you didn't buy a Victory card this turn, you may put this on top of your deck.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(warehouse = new CardImpl.Builder(Cards.Kind.Warehouse, 3, Type.Action).addCards(3).addActions(1).description("Discard 3 cards.").expansion(Expansion.Seaside).build());
         actionCardsSeaside.add(wharf = new CardImpl.Builder(Cards.Kind.Wharf, 5, Type.Action, Type.Duration).addCardsNextTurn(2).addBuysNextTurn(1).addCards(2).addBuys(1).expansion(Expansion.Seaside).build());
+
+        actionCardsSeaside2E.add(astrolabe = new CardImpl.Builder(Kind.Astrolabe, 1, Type.Treasure, Type.Duration).addGold(1).addBuys(1).addGoldNextTurn(1).addBuysNextTurn(1).expansion(Expansion.Seaside).build());
+        //actionCardsSeaside2E.add(blockade);
+        //actionCardsSeaside2E.add(corsair);
+        //actionCardsSeaside2E.add(monkey);
+        //actionCardsSeaside2E.add(pirate);
+        //actionCardsSeaside2E.add(sailor);
+        actionCardsSeaside2E.add(seaChart = new CardImpl.Builder(Kind.SeaChart, 3, Type.Action).addCards(1).addActions(1).expansion(Expansion.Seaside).description("Reveal the top card of your deck. If you have a copy of it in play, put it into your hand.").build());
+        actionCardsSeaside2E.add(seaWitch = new CardImpl.Builder(Kind.SeaWitch, 5, Type.Action, Type.Duration, Type.Attack).addCards(2).expansion(Expansion.Seaside).description("Each other player gains a Curse.\\n\\nAt the start of your next turn: +2 Cards, then discard 2 cards.").build());
+        //actionCardsSeaside2E.add(tidePools);
+
+        actionCardsSeasideAll.addAll(actionCardsSeaside2E);
+        actionCardsSeaside2E.addAll(actionCardsSeaside);
+
+        actionCardsSeaside.add(ambassador = new CardImpl.Builder(Cards.Kind.Ambassador, 3, Type.Action, Type.Attack).trashForced().description("Reveal a card from your hand. Return up to 2 copies of it from your hand to the Supply. Then each other player gains a copy of it.").expansion(Expansion.Seaside).build());
+        actionCardsSeaside.add(embargo = new CardImpl.Builder(Cards.Kind.Embargo, 2, Type.Action).addGold(2).description("Trash this to add an Embargo token to a Supply pile. (For the rest of the game, when a player buys a card from that pile, they gain a Curse.)").expansion(Expansion.Seaside).build());
+        actionCardsSeaside.add(explorer = new CardImpl.Builder(Cards.Kind.Explorer, 5, Type.Action).description("You may reveal a Province card from your hand. If you do, gain a Gold card, putting it into your hand. Otherwise, gain a Silver card, putting it into your hand.").expansion(Expansion.Seaside).build());
+        actionCardsSeaside.add(ghostShip = new CardImpl.Builder(Cards.Kind.GhostShip, 5, Type.Action, Type.Attack).addCards(2).description("Each other player with 4 or more cards in hand puts cards from his hand on top of his deck until he has 3 cards in his hand.").expansion(Expansion.Seaside).build());
+        actionCardsSeaside.add(navigator = new CardImpl.Builder(Cards.Kind.Navigator, 4, Type.Action).addGold(2).description("Look at the top 5 cards of your deck. Either discard all of them, or put them back on top of your deck in any order.").expansion(Expansion.Seaside).build());
+        actionCardsSeaside.add(pearlDiver = new CardImpl.Builder(Cards.Kind.PearlDiver, 2, Type.Action).addCards(1).addActions(1).description("Look at the bottom card of your deck. You may put it on top.").expansion(Expansion.Seaside).build());
+        actionCardsSeaside.add(pirateShip = new CardImpl.Builder(Cards.Kind.PirateShip, 4, Type.Action, Type.Attack).hasPlusCoin().description("Choose one: Each other player reveals the top 2 cards of his deck, trashes a revealed Treasure that you choose, discards the rest, and if anyone trashed a Treasure you take a Coin token; or, +1 Coin per Coin token you've taken with Pirate Ships this game.").expansion(Expansion.Seaside).build());
+        actionCardsSeaside.add(seaHag = new CardImpl.Builder(Cards.Kind.SeaHag, 4, Type.Action, Type.Attack).description("Each other player discards the top card of his deck, then gains a Curse card, putting it on top of his deck.").expansion(Expansion.Seaside).build());
+
+        actionCardsSeasideAll.addAll(actionCardsSeaside);
 
         // Alchemy
         actionCardsAlchemy.add(alchemist = new CardImpl.Builder(Cards.Kind.Alchemist, 3, Type.Action).addActions(1).addCards(2).costPotion().description("When you discard this from play, you may put this on top of your deck if you have a Potion in play.").expansion(Expansion.Alchemy).build());
@@ -1538,6 +1573,8 @@ public class Cards {
         Expansion.Intrigue2E.setKingdomCards(actionCardsIntrigue2E);
         Expansion.IntrigueAll.setKingdomCards(actionCardsIntrigueAll);
         Expansion.Seaside.setKingdomCards(actionCardsSeaside);
+        Expansion.Seaside2E.setKingdomCards(actionCardsSeaside2E);
+        Expansion.SeasideAll.setKingdomCards(actionCardsSeasideAll);
         Expansion.Alchemy.setKingdomCards(actionCardsAlchemy);
         Expansion.Prosperity.setKingdomCards(actionCardsProsperity);
         Expansion.Cornucopia.setKingdomCards(actionCardsCornucopia);
@@ -1559,43 +1596,43 @@ public class Cards {
         Expansion.Promo.setEventCards(eventCardsPromo);
                 
         // Collect all Expansions
-        for (Card card : actionCardsBaseGameAll) { actionCards.add(card); }
-        for (Card card : actionCardsIntrigueAll) { actionCards.add(card); }
-        for (Card card : actionCardsSeaside)     { actionCards.add(card); }
-        for (Card card : actionCardsAlchemy)     { actionCards.add(card); }
-        for (Card card : actionCardsProsperity)  { actionCards.add(card); }
-        for (Card card : actionCardsCornucopia)  { actionCards.add(card); }
-        for (Card card : actionCardsHinterlands) { actionCards.add(card); }
-        for (Card card : actionCardsDarkAges)    { actionCards.add(card); }
-        for (Card card : actionCardsGuilds)      { actionCards.add(card); }
-        for (Card card : actionCardsAdventures)  { actionCards.add(card); }
-        for (Card card : actionCardsEmpires)     { actionCards.add(card); }
-        for (Card card : actionCardsNocturne)    { actionCards.add(card); }
-        for (Card card : actionCardsRenaissance) { actionCards.add(card); }
-        for (Card card : actionCardsMenagerie) { actionCards.add(card); }
-        for (Card card : actionCardsPromo)       { actionCards.add(card); }
-        
-        for (Card card : eventCardsAdventures)  { eventsCards.add(card); }
-        for (Card card : eventCardsEmpires)     { eventsCards.add(card); }
-        for (Card card : eventCardsMenagerie)   { eventsCards.add(card); }
-        for (Card card : eventCardsPromo)  		{ eventsCards.add(card); }
-        
-        for (Card card : landmarkCardsEmpires) { landmarkCards.add(card); }
-        
-        for (Card card : projectCardsRenaissance)  { projectCards.add(card); }
-        for (Card card : artifactCardsRenaissance) { nonKingdomCards.add(card); }
-        
-        for (Card card : wayCardsMenagerie) { wayCards.add(card); }
+        actionCards.addAll(actionCardsBaseGameAll);
+        actionCards.addAll(actionCardsIntrigueAll);
+        actionCards.addAll(actionCardsSeasideAll);
+        actionCards.addAll(actionCardsAlchemy);
+        actionCards.addAll(actionCardsProsperity);
+        actionCards.addAll(actionCardsCornucopia);
+        actionCards.addAll(actionCardsHinterlands);
+        actionCards.addAll(actionCardsDarkAges);
+        actionCards.addAll(actionCardsGuilds);
+        actionCards.addAll(actionCardsAdventures);
+        actionCards.addAll(actionCardsEmpires);
+        actionCards.addAll(actionCardsNocturne);
+        actionCards.addAll(actionCardsRenaissance);
+        actionCards.addAll(actionCardsMenagerie);
+        actionCards.addAll(actionCardsPromo);
 
-        for (Card card : nonSupplyCards)        { nonKingdomCards.add(card); };
-        for (Card card : prizeCards)            { nonKingdomCards.add(card); };
-        for (Card card : eventsCards)           { nonKingdomCards.add(card); };
-        for (Card card : landmarkCards)         { nonKingdomCards.add(card); };
-        for (Card card : boonCards)				{ nonKingdomCards.add(card); };
-        for (Card card : hexCards)				{ nonKingdomCards.add(card); };
-        for (Card card : stateCards)			{ nonKingdomCards.add(card); };
-        for (Card card : wayCards)              { nonKingdomCards.add(card); };
-        
+        eventsCards.addAll(eventCardsAdventures);
+        eventsCards.addAll(eventCardsEmpires);
+        eventsCards.addAll(eventCardsMenagerie);
+        eventsCards.addAll(eventCardsPromo);
+
+        landmarkCards.addAll(landmarkCardsEmpires);
+
+        projectCards.addAll(projectCardsRenaissance);
+        nonKingdomCards.addAll(artifactCardsRenaissance);
+
+        wayCards.addAll(wayCardsMenagerie);
+
+        nonKingdomCards.addAll(nonSupplyCards);
+        nonKingdomCards.addAll(prizeCards);
+        nonKingdomCards.addAll(eventsCards);
+        nonKingdomCards.addAll(landmarkCards);
+        nonKingdomCards.addAll(boonCards);
+        nonKingdomCards.addAll(hexCards);
+        nonKingdomCards.addAll(stateCards);
+        nonKingdomCards.addAll(wayCards);
+
         for (Card card : actionCards)       { cardNameToCard.put(card.getName(), card); }
         for (Card card : prizeCards)        { cardNameToCard.put(card.getName(), card); }
         for (Card card : nonSupplyCards)    { cardNameToCard.put(card.getName(), card); }

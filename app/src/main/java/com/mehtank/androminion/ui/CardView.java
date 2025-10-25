@@ -311,6 +311,8 @@ public class CardView extends FrameLayout implements OnLongClickListener, Checka
             return R.style.CardView_Night_Duration_Attack;
         } else if (c.isDuration && c.isNight) {
             return R.style.CardView_Night_Duration;
+        } else if (c.isDuration && c.isTreasure) {
+            return R.style.CardView_Duration_Treasure;
         } else if (c.isDuration && c.isAttack) {
             return R.style.CardView_Duration_Attack;
         } else if (c.isDuration) {
@@ -1093,6 +1095,10 @@ public class CardView extends FrameLayout implements OnLongClickListener, Checka
 
             if (c.isAttack) {
                 cardType += " - " + context.getString(R.string.type_attack);
+            }
+
+            if (c.isDuration) {
+                cardType += " - " + context.getString(R.string.type_duration);
             }
 
             if (c.isReserve) {

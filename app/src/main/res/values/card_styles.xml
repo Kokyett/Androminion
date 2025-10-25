@@ -58,6 +58,11 @@
         <item name="card_text_color">@color/cardDefaultTextColor</item>
     </style>
 
+    <style name="CardView.Duration.Treasure">
+        <item name="card_name_background_color">@color/cardTreasure</item>
+        <item name="card_background_color">@color/cardDuration</item>
+    </style>
+
     <style name="CardView.Duration.Attack">
         <item name="card_text_color">@color/cardAttack</item>
         <item name="card_name_background_color">@color/cardDefaultBackgroundColor</item>

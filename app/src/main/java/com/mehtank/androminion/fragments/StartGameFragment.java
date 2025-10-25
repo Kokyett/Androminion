@@ -226,7 +226,7 @@ public class StartGameFragment extends Fragment implements OnClickListener, OnIt
 		completeSets = new HashMap<Expansion, ToggleButton>();
 		completeSets.put(getBaseEdition(), mRandomBase = (ToggleButton) mView.findViewById(R.id.toggleButtonBaseSet));
 		completeSets.put(getIntrigueEdition(), mRandomIntrigue = (ToggleButton) mView.findViewById(R.id.toggleButtonIntrigue));
-		completeSets.put(Expansion.Seaside, mRandomSeaside = (ToggleButton) mView.findViewById(R.id.toggleButtonSeaside));
+		completeSets.put(getSeasideEdition(), mRandomSeaside = (ToggleButton) mView.findViewById(R.id.toggleButtonSeaside));
 		completeSets.put(Expansion.Alchemy, mRandomAlchemy = (ToggleButton) mView.findViewById(R.id.toggleButtonAlchemy));
 		completeSets.put(Expansion.Prosperity, mRandomProsperity = (ToggleButton) mView.findViewById(R.id.toggleButtonProsperity));
 		completeSets.put(Expansion.Cornucopia, mRandomCornucopia = (ToggleButton) mView.findViewById(R.id.toggleButtonCornucopia));
@@ -293,24 +293,34 @@ public class StartGameFragment extends Fragment implements OnClickListener, OnIt
 		ArrayList<GameTypeItem> randoms = new ArrayList<GameTypeItem>();
 		ArrayList<Expansion> blackListedExpansions = new ArrayList<Expansion>();
 		switch (getBaseEdition()) {
-		case Base:
-			blackListedExpansions.add(Expansion.Base2E);
-			break;
-		case Base2E:
-			blackListedExpansions.add(Expansion.Base);
-			break;
-		default:
-			break;
+			case Base:
+				blackListedExpansions.add(Expansion.Base2E);
+				break;
+			case Base2E:
+				blackListedExpansions.add(Expansion.Base);
+				break;
+			default:
+				break;
 		}
 		switch (getIntrigueEdition()) {
-		case Intrigue:
-			blackListedExpansions.add(Expansion.Intrigue2E);
-			break;
-		case Intrigue2E:
-			blackListedExpansions.add(Expansion.Intrigue);
-			break;
-		default:
-			break;
+			case Intrigue:
+				blackListedExpansions.add(Expansion.Intrigue2E);
+				break;
+			case Intrigue2E:
+				blackListedExpansions.add(Expansion.Intrigue);
+				break;
+			default:
+				break;
+		}
+		switch (getSeasideEdition()) {
+			case Seaside:
+				blackListedExpansions.add(Expansion.Seaside2E);
+				break;
+			case Seaside2E:
+				blackListedExpansions.add(Expansion.Seaside);
+				break;
+			default:
+				break;
 		}
 
 		GameTypeLoop: for (GameType type : GameType.values()) {
@@ -586,6 +596,10 @@ public class StartGameFragment extends Fragment implements OnClickListener, OnIt
 		return Expansion.valueOf(mPrefs.getString("intrigue_edition", "Intrigue2E"));
 	}
 
+	private Expansion getSeasideEdition() {
+		return Expansion.valueOf(mPrefs.getString("seaside_edition", "Seaside2E"));
+	}
+
 	private void initListeners() {
 		mNonKingdomDefaultCheckbox.setOnClickListener(new OnClickListener() {
 			@Override
@@ -797,6 +811,13 @@ public class StartGameFragment extends Fragment implements OnClickListener, OnIt
 					exclusions += "-" + Expansion.Intrigue + "-" + Expansion.IntrigueAll;
 				} else {
 					exclusions += "-" + Expansion.Intrigue + "-" + Expansion.Intrigue2E;
+				}
+				if (getIntrigueEdition() == Expansion.Seaside) {
+					exclusions += "-" + Expansion.Seaside2E + "-" + Expansion.SeasideAll;
+				} else if (getIntrigueEdition() == Expansion.Seaside2E) {
+					exclusions += "-" + Expansion.Seaside + "-" + Expansion.SeasideAll;
+				} else {
+					exclusions += "-" + Expansion.Seaside + "-" + Expansion.Seaside2E;
 				}
 				if (exclusions.length() > 0) {
 					strs.add("-randomexcludes" + exclusions);

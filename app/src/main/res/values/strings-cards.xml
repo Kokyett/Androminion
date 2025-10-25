@@ -1263,5 +1263,24 @@
     
     <string name="Summon_name">Summon</string>
     <string name="Summon_desc">Gain an Action card costing up to $4. Set it aside. If you do, then at the start of your next turn, play it.</string>
-    
+
+    <string name="Astrolabe_name">Astrolabe</string>
+    <string name="Astrolabe_desc"></string>
+    <string name="Blockade_name">Blockade</string>
+    <string name="Blockade_desc"></string>
+    <string name="Corsair_name">Corsair</string>
+    <string name="Corsair_desc"></string>
+    <string name="Monkey_name">Monkey</string>
+    <string name="Monkey_desc"></string>
+    <string name="Pirate_name">Pirate</string>
+    <string name="Pirate_desc"></string>
+    <string name="Sailor_name">Sailor</string>
+    <string name="Sailor_desc"></string>
+    <string name="SeaChart_name">Sea Chart</string>
+    <string name="SeaChart_desc">Reveal the top card of your deck. If you have a copy of it in play, put it into your hand.</string>
+    <string name="SeaWitch_name">Sea Witch</string>
+    <string name="SeaWitch_desc">Each other player gains a Curse.\n\nAt the start of your next turn: +2 Cards, then discard 2 cards.</string>
+    <string name="TidePools_name">Tide Pools</string>
+    <string name="TidePools_desc"></string>
+
 </resources>

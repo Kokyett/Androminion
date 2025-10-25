@@ -12,6 +12,8 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="Theme.Androminion.Light.DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -25,6 +27,8 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="Theme.Androminion.Light" parent="Theme.AppCompat.Light">
@@ -38,6 +42,8 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="Theme.Androminion.NoActionBar" parent="Theme.AppCompat.NoActionBar">
@@ -51,6 +57,8 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="Theme.Androminion.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
@@ -64,6 +72,8 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
 </resources>

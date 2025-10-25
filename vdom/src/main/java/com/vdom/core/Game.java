@@ -988,6 +988,7 @@ public class Game {
     		winEvent.setAmount(highestBid);
             context.game.broadcastEvent(winEvent);
     	}
+        player.playedCards.clear();
     }
     
     protected void playerAction(Player player, MoveContext context) {
@@ -1243,7 +1244,8 @@ public class Game {
                || thisCard.equals(Cards.cobbler)
                || thisCard.equals(Cards.captain)
                || thisCard.equals(Cards.church)
-               || thisCard.equals(Cards.mastermind)) {
+               || thisCard.equals(Cards.mastermind)
+               || thisCard.equals(Cards.seaWitch)) {
                 allDurationAreSimple = false;
             }
             if(thisCard.equals(Cards.haven)) {
@@ -1614,9 +1616,6 @@ public class Game {
                     context.buys += 1;
                     addCardsNextTurn = 5;
                 }
-                if (thisCard.getKind() == Cards.Kind.Dungeon) {
-                    addCardsNextTurn = 2;
-                }
                 if (thisCard.getKind() == Cards.Kind.Hireling) {
                     addCardsNextTurn = 1;
                 }
@@ -1629,7 +1628,8 @@ public class Game {
                 if (thisCard.getKind() == Cards.Kind.Amulet) {
                 	((CardImplAdventures) thisCard).amuletEffect(context.game, context, player, new PlayContext());
                 }
-                if (thisCard.getKind() == Cards.Kind.Dungeon) {
+                if (thisCard.getKind() == Cards.Kind.Dungeon || thisCard.getKind() == Cards.Kind.SeaWitch) {
+                    addCardsNextTurn = 2;
                 	((CardImpl) thisCard).discardMultiple(context, player, 2);
                 }    
                 if (thisCard.getKind() == Cards.Kind.Ghost) {
