@@ -77,6 +77,7 @@
 		-:ankur
 		<h3>Version 10.0</h3>
 		* Menagerie Expansion! <br>
+		* Images and logs are now stored in the selected directory (Settings, User Interface tab)<br>
 		<h3>Version 9.06</h3>
 		* Renaissance Expansion! <br>
 		* Promo Cards: Captain, Church
@@ -144,10 +145,6 @@
 	<string name="contrib_menu">Credits </string>
 	<string name="contrib_title">Bijgedragen door: </string>
 	<string name="logging_pref_title">Spel Logs</string>
-	<string name="logging_enable_pref_title">Schakel spel logs in</string>
-	<string name="logging_enable_pref_summary">Logs worden opgeslagen op je SD kaart als tekstbestanden.</string>
-	<string name="logging_dir_pref_title">Log folder</string>
-	<string name="logging_dir_pref_summary">Folder waar spel logs worden opgeslagen (zal worden aangemaakt wanneer nodig)</string>
 	<string name="game_type_random">Willekeurig</string>
 	<string name="game_type_preset">Voorgedefinieerd</string>
 	<string name="game_type_last">Laatst gespeeld</string>

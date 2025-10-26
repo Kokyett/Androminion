@@ -130,10 +130,6 @@
 
 	<string name="logging_testings_tab_pref_title">Logs and debug</string>
 	<string name="logging_pref_title">游戏日志</string>
-	<string name="logging_enable_pref_title">启用</string>
-	<string name="logging_enable_pref_summary">以文本格式储存到储存卡中</string>
-	<string name="logging_dir_pref_title">日志地址</string>
-	<string name="logging_dir_pref_summary">必要时会被创建</string>
 	<string name="testing_pref_title">调试</string>
 	<string name="god_mode_pref_title">测试模式</string>
 	<string name="god_mode_pref_summary">每回合开始时拥有(999)现金，999购买，999行动</string>

@@ -132,10 +132,6 @@
 
 	<string name="logging_testings_tab_pref_title">Logs and debug</string>
 	<string name="logging_pref_title">Aufzeichhnung</string>
-	<string name="logging_enable_pref_title">Aktiviert</string>
-	<string name="logging_enable_pref_summary">Alle Aktionen des Spiels werden in eine Datei gespeichert</string>
-	<string name="logging_dir_pref_title">Aufzeichnungsordner</string>
-	<string name="logging_dir_pref_summary">Ordner, wo die Datei gespeichert wird. (wird wenn nötig erstellt)</string>
 	<string name="testing_pref_title">Testmodus</string>
 	<string name="god_mode_pref_title">Testmodus</string>
 	<string name="god_mode_pref_summary">Jeder Zug beginnt mit 999 Geld, 999 Käufen und 999 Aktionen</string>
