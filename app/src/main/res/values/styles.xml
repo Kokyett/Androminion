@@ -9,6 +9,8 @@
         <item name="player5TextBackgroundColor">@color/player5LineColor</item>
         <item name="player6TextBackgroundColor">@color/player6LineColor</item>
         <item name="stashTextColor">@color/stashTextLight</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
     </style>
 
@@ -20,6 +22,8 @@
         <item name="player5TextBackgroundColor">@color/player5Color</item>
         <item name="player6TextBackgroundColor">@color/player6Color</item>
         <item name="stashTextColor">@color/stashTextDark</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
     </style>
 
@@ -31,6 +35,8 @@
         <item name="player5TextBackgroundColor">@color/player5Color</item>
         <item name="player6TextBackgroundColor">@color/player6Color</item>
         <item name="stashTextColor">@color/stashTextDark</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
     </style>
 
@@ -42,6 +48,8 @@
         <item name="player5TextBackgroundColor">@color/player5LineColor</item>
         <item name="player6TextBackgroundColor">@color/player6LineColor</item>
         <item name="stashTextColor">@color/stashTextLight</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
     </style>
 
@@ -53,6 +61,8 @@
         <item name="player5TextBackgroundColor">@color/player5Color</item>
         <item name="player6TextBackgroundColor">@color/player6Color</item>
         <item name="stashTextColor">@color/stashTextDark</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
     </style>
 
