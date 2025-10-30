@@ -21,6 +21,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -40,6 +41,7 @@ import androidx.preference.PreferenceManager;
 import com.mehtank.androminion.R;
 import com.mehtank.androminion.util.CardGroup;
 import com.mehtank.androminion.util.CheckableEx;
+import com.mehtank.androminion.util.FileManager;
 import com.mehtank.androminion.util.HapticFeedback;
 import com.mehtank.androminion.util.HapticFeedback.AlertType;
 import com.mehtank.androminion.util.PlayerAdapter;
@@ -637,51 +639,27 @@ public class CardView extends FrameLayout implements OnLongClickListener, Checka
         if (cardView.getCard() == null) {
             return false;
         }
-
         HapticFeedback.vibrate(getContext(), AlertType.LONGCLICK);
 
         String str = cardView.getCard().originalSafeName;
         str = str.toLowerCase(Locale.US);
         StringTokenizer st = new StringTokenizer(str, " ", false);
-        String filename = "";
-        String titlename = cardView.getCard().name.replace(" ", "_").replace("'", "");
+        StringBuilder filename = new StringBuilder();
         while (st.hasMoreElements())
-            filename += st.nextElement();
-
-        str = cardView.getCard().originalExpansion;
-        str = str.toLowerCase(Locale.US);
-        st = new StringTokenizer(str, " ", false);
-        String exp = "";
-        while (st.hasMoreElements())
-            exp += st.nextElement();
-		/*if (exp.length() == 0)
-			exp = "common";
-		if (filename.equals("potion"))
-			exp = "alchemy";
-		else if (filename.equals("colony"))
-			exp = "prosperity";
-		else if (filename.equals("platinum"))
-			exp = "prosperity";*/
-        if (exp.length() == 0)
-            exp = "basecards";
+            filename.append(st.nextElement());
 
         View v;
 
-        String mainDir = getContext().getExternalCacheDir() + "/images/";
-        str = mainDir + titlename + ".jpg";
-        File f = new File(str);
-        if (!f.exists()) {
-            str = mainDir + filename + ".jpg";
-            f = new File(str);
-        }
-        final String finalStr = str;
+        var imgName = filename + ".jpg";
+        var df = FileManager.getImageFile(getContext(), imgName);
+
+        final String finalImgName = imgName;
 
         final LinearLayout ll = new LinearLayout(view.getContext());
         final float wp = getResources().getDisplayMetrics().widthPixels;
         final float hp = getResources().getDisplayMetrics().heightPixels;
 
-        if (!f.exists() && autodownload) {
-            new File(mainDir).mkdirs();
+        if ((df == null || !df.exists()) && autodownload) {
             MyCard c = cardView.getCard();
             int cardNameStringId = getId(c.originalSafeName + "_name", R.string.class);
             String englishCardName = getLocaleStringResource(new Locale("en"), cardNameStringId, this.getContext());
@@ -693,22 +671,23 @@ public class CardView extends FrameLayout implements OnLongClickListener, Checka
             int cardImgWidth = (c.isWay || c.isEvent || c.isLandmark || c.isProject) ? 320 : 200;
             String imgurl = "http://wiki.dominionstrategy.com/images/thumb/" + urlImageDir + urlImageNameEncoded + "/" + cardImgWidth + "px-" + urlImageNameEncoded;
 
-            //String imgurl = "http://dominion.diehrstraits.com/scans/" + exp + "/" + filename + ".jpg";
-
             this.receiver = new BroadcastReceiver() {
 
                 @Override
                 public void onReceive(Context context, Intent intent) {
                     String file = intent.getStringExtra("file");
-                    if (!file.equals(finalStr)) {
+                    FileManager.getImageFile(getContext(), finalImgName);
+                    if (!finalImgName.equals(file)) {
                         return;
                     }
                     CardView.this.receiver = null;
                     getContext().unregisterReceiver(this);
 
-                    Uri u = Uri.parse(finalStr);
+                    var df = FileManager.getImageFile(getContext(), finalImgName);
+                    if (df == null || !df.exists())
+                        return;
                     ImageView im = new ImageView(getContext());
-                    im.setImageURI(u);
+                    im.setImageURI(df.getUri());
 
                     // Calculate how to best fit the card graphics
                     if (im.getDrawable() != null) {
@@ -727,17 +706,19 @@ public class CardView extends FrameLayout implements OnLongClickListener, Checka
                     }
                 }
             };
-            getContext().registerReceiver(receiver, new IntentFilter("com.mehtank.DOWNLOADER"));
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                getContext().registerReceiver(receiver, new IntentFilter("com.mehtank.DOWNLOADER"), Context.RECEIVER_EXPORTED);
+            } else {
+                getContext().registerReceiver(receiver, new IntentFilter("com.mehtank.DOWNLOADER"));
+            }
 
             new Thread(() -> {
                 try {
                     byte[] bytes = Downloader.getBytes(new URL(imgurl));
-                    FileOutputStream fos = new FileOutputStream(finalStr);
-                    fos.write(bytes);
-                    fos.close();
+                    FileManager.writeImageFile(getContext(), finalImgName, bytes);
+
                     Intent intent = new Intent("com.mehtank.DOWNLOADER");
-                    intent.putExtra("file", finalStr);
+                    intent.putExtra("file", finalImgName);
                     getContext().sendBroadcast(intent);
                 } catch (Exception e) {
                     //TODO Log exception
@@ -766,9 +747,9 @@ public class CardView extends FrameLayout implements OnLongClickListener, Checka
         text += cardView.getCard().desc;
         textView.setText(text);
 
-        boolean addText = !f.exists() || !showimages.equals("Image");
-        if (f.exists() && (showimages.equals("Image") || showimages.equals("Both"))) {
-            Uri u = Uri.parse(str);
+        boolean addText = df == null || !df.exists() || !showimages.equals("Image");
+        if (df!= null && df.exists() && (showimages.equals("Image") || showimages.equals("Both"))) {
+            Uri u = df.getUri();
             ImageView im = new ImageView(view.getContext());
             im.setImageURI(u);
 

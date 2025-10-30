@@ -1,7 +1,5 @@
 package com.mehtank.androminion.ui;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,7 +8,6 @@ import java.util.Locale;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.HorizontalScrollView;
@@ -18,9 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 
 import com.mehtank.androminion.R;
+import com.mehtank.androminion.util.FileManager;
 
 /**
  * Display of game log
@@ -36,7 +35,8 @@ public class GameScrollerView extends HorizontalScrollView {
     private boolean onlyShowOneTurn = false;
     private int numPlayers;
     private ArrayList<View> views = new ArrayList<View>();
-    private File logfile;
+    private DocumentFile logFile;
+
 
     public GameScrollerView(Context context) {
         this(context, null);
@@ -54,38 +54,26 @@ public class GameScrollerView extends HorizontalScrollView {
 
     public void clear() {
         gameEventsRow.removeAllViews();
-        String filename = "/latest.txt";
+        String filename = "latest.txt";
 
         if (PreferenceManager.getDefaultSharedPreferences(top).getBoolean("enable_logging", false)) {
-            filename = new SimpleDateFormat("'/log_'yyyy-MM-dd_HH-mm-ss'.txt'", Locale.US).format(new Date());
+            filename = new SimpleDateFormat("'log_'yyyy-MM-dd_HH-mm-ss'.txt'", Locale.US).format(new Date());
         }
 
-        String dir = getContext().getExternalCacheDir() + PreferenceManager.getDefaultSharedPreferences(top).getString("logdir", "");
-        new File(dir).mkdirs();
-
-        logfile = new File(dir + filename);
-        logfile.delete();
-        Log.e("Logging", dir + filename);
-        try {
-            logfile.createNewFile();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            Log.e(TAG, "Failed");
-            logfile = null;
-            e.printStackTrace();
-        }
-
-        if (logfile != null && logfile.canWrite()) {
+        logFile = FileManager.getLogFile(getContext(), filename);
+        var contentResolver = getContext().getContentResolver();
+        if (logFile != null && contentResolver != null) {
             try {
-                FileWriter f = new FileWriter(logfile.getCanonicalPath(), true); // append to file
-                f.write(new SimpleDateFormat("'New game started on 'yyyy/MM/dd' at 'HH:mm:ss'\n'", Locale.US).format(new Date()));
-                f.close();
+                var os = contentResolver.openOutputStream(logFile.getUri(), "wa");
+                if (os != null) {
+                    os.write(new SimpleDateFormat("'New game started on 'yyyy/MM/dd' at 'HH:mm:ss'\n'", Locale.US).format(new Date()).getBytes());
+                    os.close();
+                }
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
-
     }
 
     public void setNumPlayers(int numPlayers) {
@@ -128,15 +116,18 @@ public class GameScrollerView extends HorizontalScrollView {
         latestTurnSV.fullScroll(FOCUS_DOWN);
         fullScroll(FOCUS_RIGHT);
 
-        if (logfile != null && logfile.canWrite()) {
+        var contentResolver = getContext().getContentResolver();
+        if (logFile != null && contentResolver != null) {
             try {
-                FileWriter f = new FileWriter(logfile.getCanonicalPath(), true); // append to file
-                if (b) {
-                    f.write(top.getString(R.string.log_turn_separator));
-                    s += (turnCount > 0 ? (top.getString(R.string.turn_header) + turnCount) : "");
+                var os = contentResolver.openOutputStream(logFile.getUri(), "wa");
+                if (os != null) {
+                    if (b) {
+                        os.write(top.getString(R.string.log_turn_separator).getBytes());
+                        s += (turnCount > 0 ? (top.getString(R.string.turn_header) + turnCount) : "");
+                    }
+                    os.write((s + "\n").getBytes());
+                    os.close();
                 }
-                f.write(s + "\n");
-                f.close();
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

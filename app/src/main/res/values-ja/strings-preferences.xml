@@ -66,8 +66,4 @@
 
     <string name="logging_testings_tab_pref_title">Logs and debug</string>
     <string name="logging_pref_title">ゲームログ</string>
-    <string name="logging_enable_pref_title">ゲームログの有効化</string>
-    <string name="logging_enable_pref_summary">ログはSDカードにテキストファイルとして保存されます</string>
-    <string name="logging_dir_pref_title">ログディレクトリ</string>
-    <string name="logging_dir_pref_summary">ゲームログを保存するディレクトリ (なければ作成)</string>
 </resources>

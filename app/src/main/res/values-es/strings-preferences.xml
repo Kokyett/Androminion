@@ -128,10 +128,6 @@
 
 	<string name="logging_testings_tab_pref_title">Logs and debug</string>
 	<string name="logging_pref_title">Registros del juego</string>
-	<string name="logging_enable_pref_title">Activar</string>
-	<string name="logging_enable_pref_summary">Se guardan en la tarjeta SD como archivos de texto</string>
-	<string name="logging_dir_pref_title">Directorio de registro</string>
-	<string name="logging_dir_pref_summary">Se creará si es necesario</string>
 	<string name="testing_pref_title">Depuración</string>
 	<string name="god_mode_pref_title">Modo de prueba</string>
 	<string name="god_mode_pref_summary">Empezar tus turnos con 999 Monedas, 999 Compras, 999 Acciones</string>

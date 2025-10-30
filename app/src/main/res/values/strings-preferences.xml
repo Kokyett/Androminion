@@ -89,6 +89,7 @@
 	<string name="show_statusbar_pref_summary">System info at top of screen</string>
 	<string name="pref_showactionbar_title">App bar</string>
 	<string name="pref_showactionbar_summary">For devices without hard menu/back buttons</string>
+	<string name="game_directory_pref_title">Game directory (images and logs)</string>
 	<string name="exitonback_pref_title">Exit with back button</string>
 	<string name="exitonback_pref_summary">When pressed twice</string>
 	<string name="card_display_pref_title">Card display</string>
@@ -113,6 +114,7 @@
 	<string name="showenglishnames_pref_summary">After card name when app language is not English</string>
 	<string name="pref_show_game_log_title">Game log</string>
 	<string name="pref_show_game_log_summary">Display what happened in game</string>
+	<string name="logging_enable_pref_title">Store log in game directory</string>
 	<string name="one_turn_logs_pref_title">Current turn log only</string>
 	<string name="one_turn_logs_pref_summary">Only show the current turn in the game log</string>
 	<string name="game_over_castle_details_pref_title">Display Castle details in game summary</string>
@@ -132,10 +134,6 @@
 
 	<string name="logging_testings_tab_pref_title">Logs and debug</string>
 	<string name="logging_pref_title">Game logs</string>
-	<string name="logging_enable_pref_title">Enable</string>
-	<string name="logging_enable_pref_summary">Stored on SD card as text files</string>
-	<string name="logging_dir_pref_title">Log directory</string>
-	<string name="logging_dir_pref_summary">Will be created if necessary</string>
 	<string name="testing_pref_title">Debugging</string>
 	<string name="god_mode_pref_title">Test Mode</string>
 	<string name="god_mode_pref_summary">Start turns with 999 Coins, 999 Buys, 999 Actions</string>

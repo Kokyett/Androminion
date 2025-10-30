@@ -80,6 +80,7 @@
 		-:ankur
 		<h3>Version 10.0</h3>
 		* Menagerie Expansion! <br>
+		* Images and logs are now stored in the selected directory (Settings, User Interface tab)<br>
 		<h3>Version 9.06</h3>
 		* Renaissance Expansion! <br>
 		* Promo Cards: Captain, Church
@@ -141,10 +142,6 @@
         <string name="contrib_menu">Создатели </string>
         <string name="contrib_title">Вкладчики: </string>
         <string name="logging_pref_title">Логи игры</string>
-        <string name="logging_enable_pref_title">Включить логи игры</string>
-        <string name="logging_enable_pref_summary">Логи будут храниться на Вашей SD карте в виде текстовых файлов</string>
-        <string name="logging_dir_pref_title">Папка логов</string>
-        <string name="logging_dir_pref_summary">Папка для хранения логов игры (при необходимости будет создана)</string>
         <string name="game_type_random">Случайно</string>
         <string name="game_type_preset">Настройка</string>
         <string name="game_type_last">Последняя сыгранная</string>
